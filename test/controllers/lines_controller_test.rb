@@ -42,7 +42,5 @@ class LinesControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Line.count', -1) do
       delete line_url(@line)
     end
-
-    assert_redirected_to lines_url
   end
 end
