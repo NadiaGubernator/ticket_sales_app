@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170516141942) do
+ActiveRecord::Schema.define(version: 20170516184152) do
 
   create_table "lines", force: :cascade do |t|
     t.integer  "seats_total"
