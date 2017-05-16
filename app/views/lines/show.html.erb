@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Seats total:</strong>
+  <%= @line.seats_total %>
+</p>
+
+<p>
+  <strong>Departure city:</strong>
+  <%= @line.departure_city %>
+</p>
+
+<p>
+  <strong>Departure time:</strong>
+  <%= @line.departure_time %>
+</p>
+
+<p>
+  <strong>Arrival city:</strong>
+  <%= @line.arrival_city %>
+</p>
+
+<p>
+  <strong>Arrival time:</strong>
+  <%= @line.arrival_time %>
+</p>
+
+<%= link_to 'Edit', edit_line_path(@line) %> |
+<%= link_to 'Back', lines_path %>

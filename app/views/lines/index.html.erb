@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Seats total</th>
+      <th>Departure city</th>
+      <th>Departure time</th>
+      <th>Arrival city</th>
+      <th>Arrival time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lines.each do |line| %>
+      <tr>
+        <td><%= line.seats_total %></td>
+        <td><%= line.departure_city %></td>
+        <td><%= line.departure_time %></td>
+        <td><%= line.arrival_city %></td>
+        <td><%= line.arrival_time %></td>
+        <td><%= link_to 'Show', line %></td>
+        <td><%= link_to 'Edit', edit_line_path(line) %></td>
+        <td><%= link_to 'Destroy', line, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Line', new_line_path %>
