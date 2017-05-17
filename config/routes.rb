@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
 
-  get    'users/home',  to: 'static_pages#home'
-  get    'users/lines',  to: 'lines#index'
+  get    '/users/home',  to: 'static_pages#home'
+  get    '/users/lines',  to: 'lines#index'
 end
