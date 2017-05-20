@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Це (частково) виконане тестове завдання для Pivorak Ruby Course
 
-Things you may want to cover:
+ Логін/пароль адміна: test@admin.org  admin1
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ Із серйозних недоробок - не працює механізм покупки квитків і немає пошуку по
+ автобусним лініям.

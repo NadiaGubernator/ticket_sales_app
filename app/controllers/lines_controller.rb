@@ -2,6 +2,7 @@ class LinesController < ApplicationController
   before_action :set_line, only: [:show, :edit, :update, :destroy]
 
   helper_method :tickets_available
+  helper_method :create_ticket
 
   def index
     @lines = Line.all
@@ -41,6 +42,10 @@ class LinesController < ApplicationController
 
   def tickets_available(line)
     line.seats_total-line.tickets.where(user_id: 1).length
+  end
+
+  def create_ticket
+    redirect_to action: TicketsController.create
   end
 
   private
