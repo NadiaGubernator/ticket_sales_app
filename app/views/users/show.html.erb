@@ -17,9 +17,12 @@
     <% if @user.tickets.any? %>
       <h3>Tickets (<%= @user.tickets.count %>)</h3>
       <ol class="tickets">
-        <%= render @tickets %>
+        <% @user.tickets.each do |ticket| %>
+          <%= "Line id: #{ticket.line_id }" %>
+          <%= "Number of seat: #{ticket.seat}" %>
+          <br>
+        <% end %>
       </ol>
-      <%= will_paginate @tickets %>
     <% end %>
   </div>
 </div>
