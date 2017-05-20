@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519120138) do
+ActiveRecord::Schema.define(version: 20170516184152) do
 
   create_table "lines", force: :cascade do |t|
     t.integer  "seats_total"
     t.string   "departure_city"
     t.datetime "departure_time"
     t.string   "arrival_city"
-    t.datetime "arrival_time"
+    t.time     "arrival_time"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
