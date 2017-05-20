@@ -7,14 +7,12 @@ Rails.application.routes.draw do
 
   root   'static_pages#home'
 
-  get    '/home',    to: 'static_pages#home'
+  get    '/home',  to: 'static_pages#home'
   get    '/signup',  to: 'users#new'
   post   '/signup',  to: 'users#create'
-  get    '/lines',   to: 'lines#index'
+  get    '/lines',  to: 'lines#index'
   get    '/create',  to: 'lines#new'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  get    '/ticket',  to: 'tickets#show'
-  get    ':id',      to: 'lines#show', as: 'show_line'
 end
