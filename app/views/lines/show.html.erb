@@ -1,29 +1,43 @@
 <% provide(:title, "Line") %>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Seats total:</strong>
-  <%= @line.seats_total %>
-</p>
+<aside class="col-md-4">
+  <p>
+    <strong>Seats total:</strong>
+    <%= @line.seats_total %>
+  </p>
 
-<p>
-  <strong>Departure city:</strong>
-  <%= @line.departure_city %>
-</p>
+  <p>
+    <strong>Departure city:</strong>
+    <%= @line.departure_city %>
+  </p>
 
-<p>
-  <strong>Departure time:</strong>
-  <%= @line.departure_time %>
-</p>
+  <p>
+    <strong>Departure time:</strong>
+    <%= @line.departure_time %>
+  </p>
 
-<p>
-  <strong>Arrival city:</strong>
-  <%= @line.arrival_city %>
-</p>
+  <p>
+    <strong>Arrival city:</strong>
+    <%= @line.arrival_city %>
+  </p>
 
-<p>
-  <strong>Arrival time:</strong>
-  <%= @line.arrival_time %>
-</p>
+  <p>
+    <strong>Arrival time:</strong>
+    <%= @line.arrival_time %>
+  </p>
 
-<%= link_to 'Back', lines_path %>
+  <%= link_to 'Back', lines_path %>
+</aside>
+
+<div class="col-md-8">
+  <p>
+    <div class="row">
+      <strong>Buy ticket for seat number:</strong>
+      <br>
+      <% 1.upto(@line.seats_total) do |i| %>
+        <%= link_to "#{i}", '#'%>
+      <% end %>
+    </div>
+  </p>
+<div class="col-md-8">
