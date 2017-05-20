@@ -1,29 +1,47 @@
 <% provide(:title, "Line") %>
-<p id="notice"><%= notice %></p>
+<aside class="col-md-4">
+  <p>
+    <strong>Seats total:</strong>
+    <%= @line.seats_total %>
+  </p>
 
-<p>
-  <strong>Seats total:</strong>
-  <%= @line.seats_total %>
-</p>
+  <p>
+    <strong>Departure city:</strong>
+    <%= @line.departure_city %>
+  </p>
 
-<p>
-  <strong>Departure city:</strong>
-  <%= @line.departure_city %>
-</p>
+  <p>
+    <strong>Departure time:</strong>
+    <%= @line.departure_time %>
+  </p>
 
-<p>
-  <strong>Departure time:</strong>
-  <%= @line.departure_time %>
-</p>
+  <p>
+    <strong>Arrival city:</strong>
+    <%= @line.arrival_city %>
+  </p>
 
-<p>
-  <strong>Arrival city:</strong>
-  <%= @line.arrival_city %>
-</p>
+  <p>
+    <strong>Arrival time:</strong>
+    <%= @line.arrival_time %>
+  </p>
 
-<p>
-  <strong>Arrival time:</strong>
-  <%= @line.arrival_time %>
-</p>
+  <%= link_to 'Back', lines_path %>
+</aside>
 
-<%= link_to 'Back', lines_path %>
+<div class="col-md-8">
+  <p><strong>Seats available:</strong> <%= tickets_available(@line) %></p>
+  <p><%= link_to 'Buy ticket', '#' if tickets_available(@line) != 0 %></p>
+</div>
+
+<% if current_user != nil && current_user.admin &&
+               (@line.seats_total - tickets_available(@line)) > 0 %>
+               <div class="col-md-8">
+                 <p><strong>ID numbers of buyers:</strong>
+                   <% @line.tickets.each do |ticket| %>
+                      <%if ticket.user_id!=nil%>
+                        <%= link_to "#{ticket.user_id}", User.find(ticket.user_id)%>
+                      <% end %>
+                   <% end %>
+                 </p>
+               </div>
+<% end %>

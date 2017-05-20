@@ -11,27 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :line_id %>
-    <%= f.number_field :line_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :seat %>
-    <%= f.number_field :seat %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.number_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :bought %>
-    <%= f.check_box :bought %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td><%= f.label :line_id %><%= link_to "#{ticket.line_id}", show_line_path(ticket.line_id) %></td>
+        <td><%= f.label :seat %><%= ticket.seat %></td>
+      </tr>
+    </tbody>
+  </table>
 <% end %>

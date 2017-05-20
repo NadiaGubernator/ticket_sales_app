@@ -1,5 +1,8 @@
 class LinesController < ApplicationController
-  before_action :set_line, only: [:show, :edit, :update, :destroy]
+  before_action :set_line, only: [:show, :edit, :update, :destroy,
+          :tickets_available]
+
+  helper_method :tickets_available
 
   def index
     @lines = Line.all
@@ -16,9 +19,9 @@ class LinesController < ApplicationController
   end
 
   def create
-    @line = Line.new(line_params)
+    @line = Line.new
     if @line.save
-        redirect_to @line, notice: 'Line was successfully created.'
+      redirect_to @line, notice: 'Line was successfully created.'
     else
         render :new
     end
@@ -35,6 +38,10 @@ class LinesController < ApplicationController
   def destroy
     @line.destroy
     redirect_to lines_url, notice: 'Line was successfully destroyed.'
+  end
+
+  def tickets_available(line)
+    @line.params[:seats_total]-Ticket.where(line_id: line.id)
   end
 
   private
