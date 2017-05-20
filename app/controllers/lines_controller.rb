@@ -1,6 +1,8 @@
 class LinesController < ApplicationController
   before_action :set_line, only: [:show, :edit, :update, :destroy]
 
+  helper_method :tickets_available
+
   def index
     @lines = Line.all
   end
@@ -35,6 +37,10 @@ class LinesController < ApplicationController
   def destroy
     @line.destroy
     redirect_to lines_url, notice: 'Line was successfully destroyed.'
+  end
+
+  def tickets_available(line)
+    line.seats_total-line.tickets.where(user_id: 1).length
   end
 
   private
