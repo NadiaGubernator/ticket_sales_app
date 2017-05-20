@@ -15,19 +15,6 @@ class LinesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should create line" do
-    assert_difference('Line.count') do
-      post lines_url, params: { line: { arrival_city: @line.arrival_city, arrival_time: @line.arrival_time, departure_city: @line.departure_city, departure_time: @line.departure_time, seats_total: @line.seats_total } }
-    end
-
-    assert_redirected_to line_url(Line.last)
-  end
-
-  test "should show line" do
-    get line_url(@line)
-    assert_response :success
-  end
-
   test "should get edit" do
     get edit_line_url(@line)
     assert_response :success
