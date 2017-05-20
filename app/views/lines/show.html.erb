@@ -33,11 +33,22 @@
 <div class="col-md-8">
   <p>
     <div class="row">
-      <strong>Buy ticket for seat number:</strong>
-      <br>
-      <% 1.upto(@line.seats_total) do |i| %>
-        <%= link_to "#{i}", '#'%>
-      <% end %>
+      <% if tickets_available(@line) != 0 %>
+        <strong>Buy ticket for seat number:</strong>
+        <br>
+        <% 1.upto(@line.seats_total) do |i| %>
+          <%= link_to "#{i}", '#' if @line.tickets.where(user_id: 1, seat: i)%>
+        <% end %>
+      <% end%>
+
+      <%if current_user.admin && tickets_available(@line) != @line.seats_total%>
+        <br>
+        <strong>Who bought tickets:</strong>
+        <br>
+        <% @line.users.each do |user| %>
+          <%= user.id unless user.id == 1 %>
+        <% end %>
+      <% end%>
     </div>
   </p>
-<div class="col-md-8">
+</div>
